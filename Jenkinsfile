@@ -1,8 +1,12 @@
 pipeline {
+  options {
+   skipDefaultCheckout() 
+  }
   agent { label 'master' }
   stages {
     stage('DoCheckout') {
       steps {
+        checkout scm
         script {
           if(isUnix()) {
             sh script: """
