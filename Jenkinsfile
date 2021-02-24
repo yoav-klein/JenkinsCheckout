@@ -1,7 +1,7 @@
 pipeline {
-  options {
+ /* options {
    skipDefaultCheckout() 
-  }
+  }*/
   agent { label 'master' }
   stages {
     stage('DoCheckout') {
