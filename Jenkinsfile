@@ -1,13 +1,23 @@
 pipeline {
-  agent { label 'linux' }
+  agent { label 'master' }
   stages {
     stage('DoCheckout') {
       steps {
-        sh script: """
-          ls
-          pwd
-        """
-      }
+        script {
+          if(isUnix()) {
+            sh script: """
+            ls
+            pwd
+            """
+          }  else {
+             powershell script: """
+               ls
+               ls env:
+             """
+          }
+          
+        }
+              }
     }
   }
   
